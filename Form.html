@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .form {
+            position: relative;
+            text-align: center;
+            background-color:antiquewhite;
+            width: 40%;
+            margin: auto;
+        }
+        .Evaluate {
+            padding: 15px;
+        }
+    </style>
+    <head>
+        <link rel="stylesheet" type="text/css" href="Styling.css">
+        <title>Apply Today</title>
+    </head>
+    <div class="Header">
+        <table class="Nav">
+            <td>
+                <a href="index">Home</a>
+            </td>
+            <td>
+                <a href="About Us">About Us</a> 
+            </td>
+            <td>
+                <a href="Events">Events</a>  
+            </td>
+            <td>
+                <a href="Form">Apply Today</a>
+            </td>
+        </table>
+        <a href="http://ccse.kennesaw.edu/it">
+        <img src="KSU Logo.png" alt="KSU Logo" class="Logo">
+        </a>
+    </div>
+    <div class="Name">
+        <h1>Center for Applied Research in Information Technology</h1>
+    </div>
+    <div class="Page">
+        <h2>CARIT</h2>
+    </div>
+    <div class="Main">
+        <p>
+            We are hiring! Fill out the form below to join and see if you are eligable. There are only 4 spots available so apply soon!
+        </p>
+    </div>
+    <div class="form">
+        <label>Student Status</label><br/>
+        <input type="checkbox" id="Full" value="Full">Full-Time<br/>
+        <script>
+            Full.onclick = choices();
+        </script>
+        <input type="checkbox" id="Part" value="Part">Part-Time
+        <script>
+            Part.onclick = chocies2();
+        </script>
+        <P id="Choice1"></P>
+        <select id="class1">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+        </select>
+        <p id="Choice2"></p>
+        <select id="class2">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+        </select>
+            <div class="Evaluate">
+                <button onclick="Evaluation()";>Evaluate</button>
+            </div>
+            <script>
+                function choices() {
+                    var choice1 = document.getElementById("Full");
+                    var choice2 = document.getElementById("Part");
+                    if (choice1 == true){
+                        document.getElementById("Choice1").innerText = "Advanced Class Grade";
+                    }
+                    else if (choice2.checked == true){
+                        document.getElementById("Choice1").innerText = "Intro Class Grade";
+                    }
+                }
+                function choices2() {
+                    var choice1 = document.getElementById("Full");
+                    var choice2 = document.getElementById("Part");
+                    if (choice1.checked == true){
+                        document.getElementById("Choice2").innerText = "Masters Class Grade";
+                    }
+                    else if (choice2.checked == true){
+                        document.getElementById("Choice2").innerText = "Concepts Class Grade";
+                    }
+                }
+                function convert(grade){
+                    if (grade == "A") {
+                        grade = 4.0;
+                    }
+                    else if(grade == "B") {
+                        grade = 3.0;
+                    }
+                    else if (grade == "C") {
+                        grade = 2.0;
+                    }
+                    else if (grade == "D") {
+                        grade = 1.0;
+                    }
+                    else {
+                        grade = 0;
+                    }
+                    return grade;
+                }
+                function Evaluation(){
+                    var class_1;
+                    var class_2;
+                    class_1 = document.getElementById('class1').value;
+                    class_2 = document.getElementById('class2').value;
+                    grade1 = convert(class_1);
+                    grade2 = convert(class_2);
+                    var average = grade1 * grade2 / 2;
+                    window.write("This is your grade average ", average);
+                }
+
+            </script> 
+            <div class="Submit">
+                <button onclick="myFunction()">Click me</button>
+            </div>
+    </div>
+    <div class="FooterS">
+        <h4>
+            This is a class project click <a href=" http://it5443.azurewebsites.net">HERE</a> for class website
+        </h4>
+    </div>
+</html>
